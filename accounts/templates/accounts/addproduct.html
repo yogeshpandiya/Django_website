@@ -1,0 +1,38 @@
+{% extends 'accounts/navbar.html' %}
+
+{% block nav %}
+<Body>
+    <div class="row justify-content-center align-items-center" style="font-family:serif; font-style:italic; color:#253027">
+        <div class="col-md-6">
+                <form action= "/Submit_Product" method='post' id="Submit_Product" class="form">
+                    <h3 class="text-center text-dark pt-4">Add New Item To Menu</h3>
+                    <div class="form-group">
+                        <label for="Name" class="text-dark">Name:</label><br>
+                        <input type="text" name="Name" id="Name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="price" class="text-dark">Price</label><br>
+                        <input type="text" name="price" id="price" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="text-dark">Category</label><br>
+                        <input type="text" name="category" id="category" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="text-dark">Description</label><br>
+                        <input type="text" name="description" id="description" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="Submit_Product" class="btn btn-dark btn-md" value="Submit">
+                    </div>
+                    {% csrf_token %}
+                </form>
+                <div>
+                    {%for messages in messages%}
+                    <h3>{{messages}}</h3>
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+</Body>
+{% endblock nav %}

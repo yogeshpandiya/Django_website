@@ -1,0 +1,47 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<body background="https://images.unsplash.com/photo-1487700160041-babef9c3cb55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F4EBDE;" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/Home" style="font-family:serif; font-style:italic; color:#253027">My Cafe</a>
+        </div>
+        <form class="container-fluid justify-content-end">
+        <a class="btn btn-outline-dark me-2" href="/Login" role="button">Login</a>
+        </form>
+    </nav>
+    <div id="login">
+        <div class="container" style="font-family:serif; font-style:italic; col;">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="ULogin" method="post">
+                            {% csrf_token %}
+                            <h3 class="text-center text-dark pt-5">Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-dark">Username:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-dark">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-dark btn-md" value="submit">
+                            </div>
+                        </form>
+                        <div>
+                            {%for messages in messages%}
+                            <h3>{{messages}}</h3>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+  
+
+{% endblock %}

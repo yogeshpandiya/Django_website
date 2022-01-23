@@ -1,0 +1,54 @@
+{% extends 'accounts/navbar.html' %}
+
+{% block nav %}
+
+<body>
+    <div id="login">
+        <div class="container" style="font-family:serif; font-style:italic; col;">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form action= "/Submit" method='post' id="/Submit" class="form" action="" method="post">
+                            <h3 class="text-center text-dark pt-4">Register an Employee</h3>
+                            <div class="form-group">
+                                <label for="FName" class="text-dark">First Name:</label><br>
+                                <input type="text" name="FName" id="FName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="LName" class="text-dark">Last Name:</label><br>
+                                <input type="text" name="LName" id="LName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Email" class="text-dark">Email Address:</label><br>
+                                <input type="email" name="Email" id="Email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="text-dark">Username:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-dark">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Cpassword" class="text-dark">Confirm Password:</label><br>
+                                <input type="password" name="Cpassword" id="Cpassword" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-dark btn-md" value="Submit">
+                            </div>
+                            {% csrf_token %}
+                        </form>
+                        <div>
+                            {%for messages in messages%}
+                            <h3>{{messages}}</h3>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

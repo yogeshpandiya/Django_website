@@ -1,0 +1,29 @@
+{% extends 'accounts/navbar.html' %}
+
+{% block nav %}
+<Body>
+    <div class="row justify-content-center align-items-center" style="font-family:serif; font-style:italic; color:#253027">
+        <div class="col-md-6">
+                <form action= "/Submit_cst" method='post' id="Submit_cst" class="form"  method="post">
+                    <h3 class="text-center text-dark pt-4">Create a Customer</h3>
+                    <div class="form-group">
+                        <label for="Name" class="text-dark">Name:</label><br>
+                        <input type="text" name="Name" id="Name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email" class="text-dark">Email Address:</label><br>
+                        <input type="email" name="Email" id="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Number" class="text-dark">Phone Number</label><br>
+                        <input type="text" name="Number" id="Number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="Submit_cst" class="btn btn-dark btn-md" value="Submit">
+                    </div>
+                    {% csrf_token %}
+                </form>
+        </div>
+    </div>
+</Body>
+{% endblock nav %}
